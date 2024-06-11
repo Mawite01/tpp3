@@ -10,9 +10,9 @@ class CateogryContoller extends Controller
 
     public function index()
     {
-        $data = Category::all();
+        $category = Category::all();
         
-        return view('category.index', compact('data'));
+        return view('category.index', compact('category'));
     }
 
 }
