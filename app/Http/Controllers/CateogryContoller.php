@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CateogryContoller extends Controller
@@ -9,29 +10,9 @@ class CateogryContoller extends Controller
 
     public function index()
     {
-        $data = [
-            [
-                'Mark',
-                'Otto',
-                '20'
-            ],
-            [
-                'Jacob',
-                'Thornton',
-                '40'
-            ],
-            [
-                'Larry',
-                'the Bird',
-                '30'
-            ]
-        ];
-       
+        $data = Category::all();
+        
         return view('category.index', compact('data'));
     }
 
-    // public function result()
-    // {
-    //     return view('category.result');
-    // }
 }

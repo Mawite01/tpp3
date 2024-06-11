@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Hello Test</h1>
+    <a href="{{route('categoryIndex')}}">Category</a>
 </body>
 </html>
