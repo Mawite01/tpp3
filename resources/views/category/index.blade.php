@@ -7,11 +7,14 @@
 </head>
 <body>
   <h1>Category Listing</h1>
+  <a href="{{ url('/category/create')}}">Create</a>
+
 <table class="table">
   <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Name</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +22,10 @@
     <tr>
       <td>{{ $d->id }}</td>
       <td>{{ $d->name }}</td>
+      <td>
+        <a href="{{ route('categoryEdit', $d->id)}}"> Edit</a>
+        <a href=""> Delete</a>
+      </td>
     </tr>
     @endforeach
   </tbody>
