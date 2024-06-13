@@ -23,8 +23,11 @@
       <td>{{ $d->id }}</td>
       <td>{{ $d->name }}</td>
       <td>
-        <a href="{{ route('categoryEdit', $d->id)}}"> Edit</a>
-        <a href=""> Delete</a>
+        <a href="{{ route('categoryEdit', [ 'data' =>$d->id ])}}"> Edit</a>
+          <form action="{{ route('categoryDelete', $d->id)}}" method="POST">
+            @csrf
+             <button>Delete</button>
+          </form>
       </td>
     </tr>
     @endforeach

@@ -29,21 +29,24 @@ class CateogryContoller extends Controller
         return redirect()->route('categoryIndex');
     }
 
-    public function edit($id)
+    public function edit(Category $data)
     {
-        $data = Category::where('id', $id)->first();
-
         return view('category.edit', compact('data'));
     }
 
-    public function update($id)
+    public function update(Request $request, Category $data)
     {
-        $data = Category::where('id', $id)->first();
         $data->update([
-
+            'name' => $request->name
         ]);
 
-        /// 1. find data with id
-        //
+        return redirect()->route('categoryIndex');
+    }
+
+    public function delete(Category $data)
+    {
+       $data->delete();
+       
+       return redirect()->route('categoryIndex');
     }
 }

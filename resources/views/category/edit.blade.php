@@ -8,7 +8,8 @@
 <body>
     <h1>Edit Category</h1>
 
-    <form action="" method="POST">
+    <form action="{{route('categoryUpdate', $data->id)}}" method="POST">
+        @csrf
         <label for="">Name</label>
         <input type="text" name="name" value="{{ $data->name }}">
         <button type="submit">Update</button>

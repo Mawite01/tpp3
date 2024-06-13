@@ -6,9 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello Test</h1>
-    <a href="{{route('categoryIndex')}}">Category</a>
-    <a href="{{route('articles.index')}}">Article</a>
-
+    <h1>Article Index</h1>
 </body>
 </html>
