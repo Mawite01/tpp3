@@ -7,10 +7,11 @@
 </head>
 <body>
     <h1>Create Category</h1>
-    <form action="{{ route('categoryStore')}}" method="POST">
+    <form action="{{ route('categoryStore')}}" method="POST" >
         @csrf
         <label for="">Name</label>
         <input type="text" name="name">
+        <input type="file" name="image">
         <button type="submit">Create</button>
     </form>
 </body>

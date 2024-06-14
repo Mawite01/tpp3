@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\category\CateogryContoller as CategoryIndexController;
 use App\Http\Controllers\CateogryContoller;
+use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,4 @@ Route::post('category/update/{data}',[CateogryContoller::class, 'update'])->name
 Route::post('category/delete/{data}',[CateogryContoller::class, 'delete'])->name('categoryDelete');
 
 Route::resource('articles', ArticleController::class);
+Route::resource('products', ProductController::class);
