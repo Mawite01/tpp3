@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-      
+
         return view('products.index', compact('products'));
     }
 
@@ -28,27 +29,19 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        
-        if($request->file('image'))
-        {
+        if ($request->file('image')) {
             $file = $request->file('image');
-            $imageName = time().'.'.$file->getClientOriginalExtension();
+            $imageName = time() . '.' . $file->getClientOriginalExtension();
             $file->move('image', $imageName);
 
-            Product::create([
-                'name' => $request->name,
-                'price' => $request->price,
-                'image' => $imageName
-            ]);
-        }else{
-            Product::create([
-                'name' => $request->name,
-                'price' => $request->price,
-            ]);
+            Product::create($request->validated());
+
+        } else {
+            Product::create($request->validated());
         }
-        
+
         return redirect()->route('products.index');
     }
 

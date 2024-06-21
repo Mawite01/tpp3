@@ -8,7 +8,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
-    return view('index');
+    return view('welcome');
 });
 
 Route::get('test/{id}', function($id) {
@@ -24,3 +24,7 @@ Route::post('category/delete/{data}',[CateogryContoller::class, 'delete'])->name
 
 Route::resource('articles', ArticleController::class);
 Route::resource('products', ProductController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
