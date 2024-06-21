@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -19,7 +18,7 @@
                     <a href="{{ route('categoryIndex')}}">Category Listing</a>
                     @endcan
                     @can('product_listing')
-                    <a href="{{route('products.index')}}">Product Listing</a>   
+                    <a href="{{route('products.index')}}">Product Listing</a>
                     @endcan
                 </div>
             </div>

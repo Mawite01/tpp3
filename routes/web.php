@@ -11,9 +11,13 @@ Route::get('/', function() {
     return view('welcome');
 });
 
-Route::get('test/{id}', function($id) {
-    return 'Hello Test'. ''. $id;
-});
+// Route::get('/index', function() {
+//     return view('index');
+// });
+
+Route::get('/list', function() {
+    return view('list');
+})->name('list');
 
 Route::get('category',[CateogryContoller::class,'index'])->name('categoryIndex');
 Route::get('category/create',[CateogryContoller::class, 'create'])->name('categoryCreate');

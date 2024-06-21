@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     */
     public function run(): void
     {
-        Category::factory(100)->create();
+        Category::factory(11)->create();
         $this->call(PermissionTableSeeder::class);
         $this->call(RoleTableSeeder::class);
         $this->call(RolePermissionTableSeeder::class);
