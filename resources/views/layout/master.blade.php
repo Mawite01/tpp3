@@ -55,6 +55,13 @@
                             <li><i class="fa fa-table"></i><a href="{{ route('categoryIndex')}}">List</a></li>
                         </ul>
                     </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Product</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="{{ route('products.index')}}">List</a></li>
+                        </ul>
+                    </li>
+
 
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -213,9 +220,6 @@
     <script src="{{ asset('vendors/jqvmap/dist/jquery.vmap.min.js')}}"></script>
     <script src="{{ asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
     <script src="{{ asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
-    <script src="vendors/jquery/dist/jquery.min.js"></script>
-  <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
-  <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="assets/js/main.js"></script>
 
 
