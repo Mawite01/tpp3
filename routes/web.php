@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\category\CateogryContoller as CategoryIndexController;
 use App\Http\Controllers\CateogryContoller;
+use App\Http\Controllers\ObjectsController;
 use App\Http\Controllers\ProductController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
@@ -32,3 +33,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource('objects', ObjectsController::class);

@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Http\Repository\Product\ProductRepositoryInterface;
 use App\Http\Requests\ProductRequest;
-use App\Models\Product;
+use App\Http\Services\Product\ProductService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     private ProductRepositoryInterface $productRepository;
 
-    public function __construct(ProductRepositoryInterface $productRepository)
+    private ProductService $productService;
+
+    public function __construct(ProductRepositoryInterface $productRepository, ProductService $productService)
     {
         $this->productRepository = $productRepository;
+        $this->productService = $productService;
     }
     /**
      * Display a listing of the resource.
@@ -39,16 +42,12 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         if ($request->file('image')) {
-            $file = $request->file('image');
-            $imageName = time() . '.' . $file->getClientOriginalExtension();
-            $file->move('image', $imageName);
-
-            Product::create($request->validated());
-
+            $this->productService->uploadImage($request->image);
+            $this->productRepository->create($request->validated());
         } else {
-            Product::create($request->validated());
+            $this->productRepository->create($request->validated());
         }
-
+        
         return redirect()->route('products.index');
     }
 

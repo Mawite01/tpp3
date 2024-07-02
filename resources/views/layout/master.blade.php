@@ -61,7 +61,9 @@
                             <li><i class="fa fa-table"></i><a href="{{ route('products.index')}}">List</a></li>
                         </ul>
                     </li>
-
+                    <li class="">
+                        <a href="{{route('objects.index')}}"> <i class="menu-icon fa fa-dashboard"></i>API Objects</a>
+                    </li>
 
                 </ul>
             </div><!-- /.navbar-collapse -->

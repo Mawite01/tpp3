@@ -7,4 +7,6 @@ interface ProductRepositoryInterface
     public function get();
 
     public function findById($id);
+
+    public function create($data);
 }

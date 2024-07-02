@@ -12,9 +12,14 @@ class ProductRepository implements ProductRepositoryInterface
         return Product::all();
     }
 
+
     public function findById($productId)
     {
         return Product::find($productId);
     }
 
+    public function create($data)
+    {
+        return Product::create($data);
+    }
 }
