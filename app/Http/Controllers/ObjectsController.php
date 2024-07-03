@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 
