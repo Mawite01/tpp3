@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Category;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class CateogryContoller extends Controller
     {
         $category = Category::all();
 
-        return response()->json($category);
+        return CategoryResource::collection($category);
     }
 
     public function store(Request $request)
@@ -22,15 +23,15 @@ class CateogryContoller extends Controller
         ]);
 
         $category = Category::create($request->all());
-
-        return response()->json($category);
+        
+        return new CategoryResource($category);
     }
 
     public function show($id)
     {
         $category = Category::find($id);
 
-        return response()->json($category);
+        return new CategoryResource($category);
     }
 
     public function update(Request $request, $id)
@@ -40,7 +41,7 @@ class CateogryContoller extends Controller
             'name' => $request->name
         ]);
 
-        return response()->json($category);
+        return new CategoryResource($category);
     }
 
     public function delete($id)
@@ -48,6 +49,6 @@ class CateogryContoller extends Controller
         $category = Category::find($id);
         $category->delete();
 
-        return response()->json($category);
+        return new CategoryResource($category);
     }
 }
